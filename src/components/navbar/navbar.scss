@@ -1,0 +1,60 @@
+.navbar{
+    background-color: #F1F1F2 !important;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    border-radius: 0 0 20px 20px;
+    z-index: 2;
+}
+.navbar-brand{
+    display: flex;
+    align-items: center;
+}
+.close-navbar-toggler{
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    z-index:1;
+    cursor:pointer;
+  }
+  .close-navbar-toggler.collapsed{
+    z-index:-1;
+  }
+.logo_coding{
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    .logo_home{
+        width: 100%;
+    }
+    #logo_title{
+        color: black    ;
+    }
+}
+#avatar_user{
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+}
+.show1{
+    display: none ;
+}
+@media only screen and (max-width: 600px) {
+    .user_detail{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .show1{
+        opacity: 1;
+        display: flex ;
+    }
+    .show2{
+        display: none ;
+    }
+  }

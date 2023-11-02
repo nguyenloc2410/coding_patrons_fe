@@ -1,0 +1,123 @@
+.content_left{
+    height: 100vh;
+    .image_pin{
+        background-image: url("../../assets/logowelcome.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height:100dvh;
+    }
+}
+.content_right{
+    height: 100vh;
+}
+@media only screen and (max-width: 600px) {
+    .content_left{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .description{
+        position: absolute;
+        top: 40px;
+        h1{
+            font-size: 40px;
+        }
+        text-align: center;
+    }
+    .Login_btn{
+        position: absolute;
+        bottom: 20px;
+    }
+    .register_btn{
+        position: absolute;
+        bottom: 80px;
+    }
+  }
+.description_bg{
+    height: 477px;
+    justify-content: center;
+    h1{
+        font-size: 60px;
+    }
+    span{
+        font-size: 20px
+    }
+    
+}
+.register_btn{
+    background-color: red;
+    padding: 10px;
+    width: 100px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    &:hover{
+        background-color: gray;
+    }
+}
+.Login_btn{
+    padding: 10px;
+    width: 100px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+}
+.Login_btn:hover{
+    background-color: gray;
+}
+.content_main{
+    height: 3000px;
+}
+
+.picture_half{
+    img{
+        width: 100%;
+    }
+    padding: 0 8px;
+  }
+.skill_total{
+    width: 100%;
+    background-color: #F1F1F1;
+    height: 30px;
+    .skill_1{
+        width: 95%;
+        background-color: #616161;
+        height: 30px;
+        text-align: center;
+        color: #000;
+    }
+    .skill_2{
+        width: 85%;
+        background-color: #616161;
+        height: 30px;
+        text-align: center;
+        color: #000;
+    }
+    .skill_3{
+        width: 70%;
+        background-color: #616161;
+        height: 30px;
+        text-align: center;
+        color: #000;
+    }
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius:50%;
+    overflow: hidden;
+    img{
+        width: 100%;
+    }
+}
+.bio{
+    margin-left: 10px;
+}
+.name_person{
+    font-size: 25px;
+}
+.contact_me{
+    font-size: 20px;
+}

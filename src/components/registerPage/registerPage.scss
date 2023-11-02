@@ -1,0 +1,48 @@
+.body{
+    background-image: url("../../assets/loginLogo.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: block; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7); /* Black background with opacity */
+    cursor: pointer; /* Add a pointer on hover */
+    pointer-events: none;
+    z-index: 0;
+  }
+.main_form{
+    height: 100vh;
+    .form_total{
+        background-color: white;
+        width: 500px;
+        padding: 30px;
+        border-radius: 15px;
+        z-index: 1;
+        .title{
+            text-align: center;
+        }
+        box-shadow: 5px 10px #888888;
+    }
+    @media only screen and (min-width: 600px) {
+        .form_total{
+            width: 600px;
+            box-shadow: 10px 15px #888888;
+        }
+    }
+}
+.home_btn{
+    background-color: #889FA5;
+    color: white;
+}
+.login_btn{
+    background-color: #43655A;
+    color: white;
+}

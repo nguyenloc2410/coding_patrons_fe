@@ -1,0 +1,26 @@
+#profile_main{
+    height: 100vh;
+    background-color: red;
+    position: relative;
+    top: 100px;
+}
+#avatar{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+#body{
+    background-color: #18191A;
+}
+#title_progress{
+    transition: all;
+    color: green;
+}
+#title_progress_error{
+    color: red;
+}
