@@ -39,6 +39,9 @@
     width: 60px;
     height: 60px;
     border-radius: 15px;
+    &:hover{
+        cursor: pointer;
+    }
 }
 .show1{
     display: none ;

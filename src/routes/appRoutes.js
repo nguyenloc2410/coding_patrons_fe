@@ -5,6 +5,7 @@ import RegisterPage from "../components/registerPage/registerPage";
 import MainPage from "../components/mainPage/mainPage";
 import PrivateRoute from "../components/privateRoute/privateRoute";
 import Profile from "../components/profile/profile";
+import UpLoadStatus from "../components/upLoadStatus/upLoadStatus";
 
 const AppRoutes = () => {
   return (
@@ -18,9 +19,12 @@ const AppRoutes = () => {
       ></Route>
       <Route element={<PrivateRoute />}>
         <Route exact path="/main" element={<MainPage></MainPage>}></Route>
-      </Route>
-      <Route element={<PrivateRoute />}>
         <Route exact path="/profile" element={<Profile></Profile>}></Route>
+        <Route
+          exact
+          path="/uploadstatus"
+          element={<UpLoadStatus></UpLoadStatus>}
+        ></Route>
       </Route>
       <Route exact path="*" element={"404 NOT FOUND"}></Route>
     </Routes>

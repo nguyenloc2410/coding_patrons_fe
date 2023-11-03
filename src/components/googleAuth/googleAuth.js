@@ -7,7 +7,7 @@ import { app } from "../../firebase";
 import { logInWithGoogle } from "../../api/userApi";
 import {
   logInStart,
-  logInSuccess,
+  logInGoogleSuccess,
   logInFail,
 } from "../../redux/userRedux/userSlice";
 
@@ -29,7 +29,7 @@ const GoogleAuth = () => {
       };
       const res = await logInWithGoogle(userData);
       if (res.EC === 0) {
-        dispatch(logInSuccess(res.DT));
+        dispatch(logInGoogleSuccess(res.DT));
         navigates("/main");
       } else {
         dispatch(logInFail());

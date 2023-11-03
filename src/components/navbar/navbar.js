@@ -6,21 +6,25 @@ import { useEffect, useRef } from "react";
 import $ from "jquery";
 
 const Navbar = () => {
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutSide, true);
-  }, []);
-  const handleClickOutSide = (e) => {
-    if (!refOut.current.contains(e.target)) {
-      const _opened = $(".navbar-collapse").hasClass(
-        "navbar-collapse collapse show"
-      );
-      if (_opened === true) {
-        $(".navbar-toggler").trigger("click");
-      }
-    }
-  };
   const refOut = useRef(null);
+  const refProfile = useRef(null);
   const { currentUser } = useSelector((state) => state.user);
+  useEffect(() => {
+    const handleClickOutSide = (e) => {
+      if (refOut.current != null) {
+        if (!refOut.current.contains(e.target)) {
+          const _opened = $(".navbar-collapse").hasClass(
+            "navbar-collapse collapse show"
+          );
+          if (_opened === true) {
+            $(".navbar-toggler").trigger("click");
+          }
+        }
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutSide);
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg container" ref={refOut}>
       <div className="container">
@@ -41,7 +45,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarMain">
           <ul className="nav navbar-nav">
             <li className="nav-item">
-              <NavLink to="/profile" className="nav-link">
+              <NavLink to="/profile" className="nav-link" ref={refProfile}>
                 Profile
               </NavLink>
             </li>
@@ -63,7 +67,12 @@ const Navbar = () => {
         </div>
         <div className="user_detail show2">
           <span>Hi {currentUser.username} </span>
-          <img id="avatar_user" src={currentUser.avatar} alt="avatar"></img>
+          <img
+            id="avatar_user"
+            src={currentUser.avatar}
+            alt="avatar"
+            onClick={() => refProfile.current.click()}
+          ></img>
         </div>
       </div>
     </nav>

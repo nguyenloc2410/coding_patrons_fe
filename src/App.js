@@ -7,11 +7,11 @@ import Nav from "./components/navbar/navbar";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
 function App() {
-  const { is_Authentic } = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <>
       <BrowserRouter>
-        {is_Authentic ? <Nav></Nav> : <></>}
+        {currentUser ? <Nav></Nav> : <></>}
         <AppRoutes></AppRoutes>
       </BrowserRouter>
       <ToastContainer

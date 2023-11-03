@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  currentUser: {},
+  currentUser: null,
   loading: false,
-  is_Authentic: false,
+  googleAuth: false,
 };
 const userSlice = createSlice({
   name: "user",
@@ -14,11 +14,15 @@ const userSlice = createSlice({
     logInSuccess: (state, action) => {
       state.loading = false;
       state.currentUser = action.payload;
-      state.is_Authentic = true;
+    },
+    logInGoogleSuccess: (state, action) => {
+      state.googleAuth = true;
+      state.loading = false;
+      state.currentUser = action.payload;
     },
     logInFail: (state) => {
       state.loading = false;
-      state.is_Authentic = false;
+      state.currentUser = null;
     },
     updateStart: (state) => {
       state.loading = true;
@@ -30,6 +34,17 @@ const userSlice = createSlice({
     updateFail: (state) => {
       state.loading = false;
     },
+    logOutStart: (state) => {
+      state.loading = true;
+    },
+    logOutSuccess: (state) => {
+      state.loading = false;
+      state.currentUser = null;
+      state.googleAuth = false;
+    },
+    logOutFail: (state) => {
+      state.loading = false;
+    },
   },
 });
 export const {
@@ -39,5 +54,9 @@ export const {
   updateStart,
   updateSuccess,
   updateFail,
+  logOutStart,
+  logOutSuccess,
+  logOutFail,
+  logInGoogleSuccess,
 } = userSlice.actions;
 export default userSlice.reducer;

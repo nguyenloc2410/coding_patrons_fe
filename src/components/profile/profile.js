@@ -1,12 +1,16 @@
 import "./profile.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { Update } from "../../api/userApi";
+import { Update, logOut } from "../../api/userApi";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import {
   updateStart,
   updateSuccess,
   updateFail,
+  logOutStart,
+  logOutSuccess,
+  logOutFail,
 } from "../../redux/userRedux/userSlice";
 import {
   getDownloadURL,
@@ -19,12 +23,14 @@ import { app } from "../../firebase";
 const Profile = () => {
   const fileRef = useRef(null);
   const { currentUser } = useSelector((state) => state.user);
+  const { googleAuth } = useSelector((state) => state.user);
   const [file, setFile] = useState(undefined);
   const [percent, setPercent] = useState(0);
   const [progressTitle, setprogressTitle] = useState(false);
   const [errorProgressTitle, setErrorProgressTitle] = useState(false);
-  console.log("% success", percent);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [userDataChange, setuserDataChange] = useState({
     username: currentUser.username,
     email: currentUser.email,
@@ -59,6 +65,11 @@ const Profile = () => {
     );
   };
 
+  const handleUpLoadStatus = (e) => {
+    e.preventDefault();
+    navigate("/uploadstatus");
+  };
+
   useEffect(() => {
     if (file) {
       handleFileUpload(file);
@@ -79,6 +90,18 @@ const Profile = () => {
     } else {
       toast.warning(res.EM);
       dispatch(updateFail(res.DT));
+    }
+  };
+
+  const handleLogOut = async (e) => {
+    e.preventDefault();
+    dispatch(logOutStart());
+    const res = await logOut();
+    if (res.EC === 0) {
+      dispatch(logOutSuccess());
+      navigate("/");
+    } else {
+      dispatch(logOutFail());
     }
   };
   return (
@@ -143,21 +166,25 @@ const Profile = () => {
                   Please enter an email.
                 </div>
               </div>
-              <div className="mb-3">
-                <label className="form-label">Password</label>
-                <input
-                  type="password"
-                  className="form-control form-control-lg "
-                  id="password"
-                  onChange={(e) => handleChange(e)}
-                />
-                <div
-                  id="validationServer04Feedback"
-                  className="invalid-feedback"
-                >
-                  Please enter a right password.
+              {googleAuth ? (
+                <></>
+              ) : (
+                <div className="mb-3">
+                  <label className="form-label">Password</label>
+                  <input
+                    type="password"
+                    className="form-control form-control-lg "
+                    id="password"
+                    onChange={(e) => handleChange(e)}
+                  />
+                  <div
+                    id="validationServer04Feedback"
+                    className="invalid-feedback"
+                  >
+                    Please enter a right password.
+                  </div>
                 </div>
-              </div>
+              )}
               <div className="form_footer d-flex justify-content-center">
                 <button
                   onClick={(e) => handleUpdate(e)}
@@ -166,8 +193,19 @@ const Profile = () => {
                 >
                   Update
                 </button>
-                <button type="submit" className="btn home_btn">
-                  HOME
+                <button
+                  type="submit"
+                  className="btn home_btn me-5"
+                  onClick={(e) => handleLogOut(e)}
+                >
+                  Log Out
+                </button>
+                <button
+                  type="submit"
+                  className="btn upload_status_btn me-5"
+                  onClick={(e) => handleUpLoadStatus(e)}
+                >
+                  UpLoad Status
                 </button>
               </div>
             </form>

@@ -14,4 +14,8 @@ const Update = (userData) => {
   return axios.post("/user/api/update", userData);
 };
 
-export { signUp, logIn, logInWithGoogle, Update };
+const logOut = () => {
+  return axios.get("/user/api/logout");
+};
+
+export { signUp, logIn, logInWithGoogle, Update, logOut };

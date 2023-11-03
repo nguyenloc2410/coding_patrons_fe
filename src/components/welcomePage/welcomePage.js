@@ -15,7 +15,7 @@ import { useEffect } from "react";
 
 const WelcomePage = () => {
   const navigates = useNavigate();
-  const { is_Authentic } = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
 
   const directToLogin = () => {
     navigates("/login");
@@ -24,7 +24,7 @@ const WelcomePage = () => {
     navigates("/register");
   };
   useEffect(() => {
-    if (is_Authentic) {
+    if (currentUser) {
       navigates("/main");
     }
   });
