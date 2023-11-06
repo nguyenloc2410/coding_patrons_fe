@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./upLoadStatus.scss";
 import {
   getStorage,
@@ -7,12 +7,15 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "../../firebase";
+import { uploadStatus } from "../../api/statusApi";
+import { useSelector } from "react-redux";
 
 const UpLoadStatus = () => {
   const [upLoading, setUpLoading] = useState(false);
   const [errorLoading, setErrorLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [file, setFile] = useState([]);
+  const { currentUser } = useSelector((state) => state.user);
   const [precent, setPrecent] = useState(0);
   const [formData, setformData] = useState({
     describe: "",
@@ -69,9 +72,21 @@ const UpLoadStatus = () => {
   const handleDelteImage = (indexImage) => {
     setformData({
       ...formData,
-      imageURLS: formData.imageURLS.filter((url, index) => index != indexImage),
+      imageURLS: formData.imageURLS.filter(
+        (url, index) => index !== indexImage
+      ),
     });
   };
+
+  const handleUpStatus = async (e) => {
+    e.preventDefault();
+    const uploadData = {
+      userid: currentUser.id,
+      content: formData,
+    };
+    await uploadStatus(uploadData);
+  };
+
   useEffect(() => {
     const textArea = document.getElementById("describe");
     if (textArea !== null) {
@@ -111,7 +126,12 @@ const UpLoadStatus = () => {
                 {formData.imageURLS.map((url, index) => (
                   <div key={url}>
                     <div id="image_container">
-                      <img key={url} className="image_items" src={url}></img>
+                      <img
+                        key={url}
+                        className="image_items"
+                        src={url}
+                        alt="image"
+                      ></img>
                       <div className="close_btn_image my-3">
                         <button
                           onClick={() => handleDelteImage(index)}
@@ -151,7 +171,12 @@ const UpLoadStatus = () => {
               </div>
             </div>
             <div id="footer">
-              <button className="btn btn-success">Upload</button>
+              <button
+                onClick={(e) => handleUpStatus(e)}
+                className="btn btn-success"
+              >
+                Upload
+              </button>
             </div>
           </form>
         </div>

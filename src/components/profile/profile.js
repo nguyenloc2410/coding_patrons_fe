@@ -108,7 +108,7 @@ const Profile = () => {
     <>
       <div id="body">
         <div className="main_form d-flex justify-content-center align-items-center container">
-          <div className="form_total">
+          <div className="form_total px-2">
             <form>
               <div className="title">
                 <h1>Profile</h1>
@@ -185,24 +185,24 @@ const Profile = () => {
                   </div>
                 </div>
               )}
-              <div className="form_footer d-flex justify-content-center">
+              <div className="form_footer d-flex justify-content-evenly">
                 <button
                   onClick={(e) => handleUpdate(e)}
                   type="submit"
-                  className="btn login_btn me-5"
+                  className="btn login_btn"
                 >
                   Update
                 </button>
                 <button
                   type="submit"
-                  className="btn home_btn me-5"
+                  className="btn home_btn"
                   onClick={(e) => handleLogOut(e)}
                 >
                   Log Out
                 </button>
                 <button
                   type="submit"
-                  className="btn upload_status_btn me-5"
+                  className="btn upload_status_btn"
                   onClick={(e) => handleUpLoadStatus(e)}
                 >
                   UpLoad Status

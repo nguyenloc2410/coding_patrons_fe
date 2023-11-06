@@ -1,0 +1,65 @@
+.img_container{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+// .modal-content{
+//     height:90vh;
+//     overflow: hidden;
+//     overflow-y: scroll;
+// }
+#content_prime{
+    height: 70vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.comment_container{
+    position: fixed;
+    bottom: 90px;
+}
+.comment_footer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.comment_avatar{
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    background-color: red;
+    border-radius: 50%;
+    .comment_avatar_img{
+        width: 100%;
+        height: 100%;
+    }
+}
+#input_comment{
+    width: 100%;
+    margin: 0 5px 15px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.comment_container{
+    width: 300px;
+}
+.comments_user{
+    overflow: hidden;
+}
+.comment_container_child{
+    display: flex;
+    margin-bottom: 20px;
+    .comment_container_child_content{
+        display: flex;
+        flex-direction: column;
+    }
+    .comment_container_child_avatar{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 10px;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
