@@ -9,6 +9,18 @@ import sealogo from "../../assets/underwater.jpg";
 import Slider from "../slider/slider";
 import user1 from "../../assets/minhquan.jpg";
 import user2 from "../../assets/baolam.jpg";
+import detect1 from "../../assets/756ab701-3f0c-465a-89d2-e21d02bb7446.jpg"
+import detect2 from "../../assets/4328654e-9a84-4343-9e80-cacf76bbe0f3.jpg"
+import detect3 from "../../assets/code1.jpg"
+import detect4 from "../../assets/code2.jpg"
+import detect5 from "../../assets/mophong1.jpg"
+import detect6 from "../../assets/mophong2.jpg"
+import detect7 from "../../assets/code3.jpg"
+import detect8 from "../../assets/code4.jpg"
+import loc from "../../assets/Screenshot 2023-12-08 002221.png"
+import lam from "../../assets/BaoLam_21207177.jpg"
+import quan from "../../assets/MinhQuan_21207205.jpg"
+
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -34,7 +46,7 @@ const WelcomePage = () => {
         <div className="content_left px-0 col-md-5 ">
           <div className="description d-block d-sm-none ">
             <h1>Coding Patrons</h1>
-            <span>Just simple a Developer</span>
+            <span>Just simple a Circuit Designer</span>
           </div>
           <Slider></Slider>
           <button
@@ -52,8 +64,8 @@ const WelcomePage = () => {
         </div>
         <div className="content_right col-md-7 px-0">
           <div className="description_bg d-sm-flex align-items-center gap-3 flex-column d-none d-sm-block">
-            <h1>Coding Patrons</h1>
-            <span>Just simple a Developer</span>
+            <h1>Dien Tu Vien Thong</h1>
+            <span>Just simple a Circuit Designer</span>
             <div className="action_btn">
               <button
                 onClick={() => directToLogin()}
@@ -75,57 +87,49 @@ const WelcomePage = () => {
               <div className="picture d-flex ">
                 <div className="row picture_row">
                   <div className="picture_half d-flex flex-column gap-3 mx-0 col-sm-6">
-                    <img src={weddinglogo} alt="picture_portfolio"></img>
-                    <img src={rocklogo} alt="picture_portfolio"></img>
-                    <img src={sailboatlogo} alt="picture_portfolio"></img>
+                    <img src={detect5} alt="picture_portfolio"></img>
+                    <img src={detect4} alt="picture_portfolio"></img>
+                    <img src={detect6} alt="picture_portfolio"></img>
+                    <img src={detect6} alt="picture_portfolio"></img>
+                    <img src={detect8} alt="picture_portfolio"></img>
                   </div>
                   <div className="picture_half d-flex flex-column gap-3 mx-0 col-sm-6 mt-3 mt-sm-0">
-                    <img src={sealogo} alt="picture_portfolio"></img>
-                    <img src={cheflogo} alt="picture_portfolio"></img>
-                    <img src={hilllogo} alt="picture_portfolio"></img>
-                    <img src={p6logo} alt="picture_portfolio"></img>
+                    <img src={detect3} alt="picture_portfolio"></img>
+                    <img src={detect1} alt="picture_portfolio"></img>
+                    <img src={detect7} alt="picture_portfolio"></img>
+                    <img src={detect2} alt="picture_portfolio"></img>
                   </div>
                 </div>
               </div>
               <div className="about mt-5">
                 <h1>About</h1>
                 <span className="descript">
-                  Some text about me. Some text about me. I am lorem ipsum
-                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                  ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                  ea commodo consequat. Duis aute irure dolor in reprehenderit
-                  in voluptate velit esse cillum dolore eu fugiat nulla
-                  pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                  in culpa qui officia deserunt mollit anim id est laborum
-                  consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                  ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                  ea commodo consequat.
+                  I'm a student at University of Science and just want to know how people out there can build a website, so I just make it for the purpose of studying and posting the electronic knowledge that has been learned as a personal memory. Sumary you can consider this website as my personal little blog.
+                  And welcome aboard !!!
                 </span>
               </div>
               <div className="my_skill mt-5">
                 <h1>My skill</h1>
                 <div className="percent_skill">
-                  <div>Reactjs</div>
+                  <div>Basic/Digital Electronic</div>
                   <div className="skill_total mb-5">
-                    <div className="skill_1">90%</div>
+                    <div className="skill_1">70%</div>
                   </div>
-                  <div>JavaScript</div>
+                  <div>C/C++</div>
                   <div className="skill_total mb-5">
                     <div className="skill_2">85%</div>
                   </div>
-                  <div>Nodejs</div>
+                  <div>Verilog</div>
                   <div className="skill_total mb-5">
-                    <div className="skill_3">70%</div>
+                    <div className="skill_3">50%</div>
                   </div>
                 </div>
               </div>
               <div className="my_reputation mt-5">
-                <h1>My Reputation</h1>
+                <h1>My Team</h1>
                 <div className="person d-flex align-items-center mb-3">
                   <div className="avatar">
-                    <img src={sealogo} alt="avatar"></img>
+                    <img src={loc} alt="avatar"></img>
                   </div>
                   <div className="bio">
                     <div className="name_person">Nguyen Tan Loc </div>
@@ -135,7 +139,7 @@ const WelcomePage = () => {
                 </div>
                 <div className="person d-flex align-items-center mb-3">
                   <div className="avatar">
-                    <img src={user1} alt="avatar"></img>
+                    <img src={quan} alt="avatar"></img>
                   </div>
                   <div className="bio">
                     <div className="name_person">Nguyen Ngoc Minh Quan </div>
@@ -145,7 +149,7 @@ const WelcomePage = () => {
                 </div>
                 <div className="person d-flex align-items-center">
                   <div className="avatar">
-                    <img src={user2} alt="avatar"></img>
+                    <img src={lam} alt="avatar"></img>
                   </div>
                   <div className="bio">
                     <div className="name_person">Nguyen Ngoc Bao Lam</div>
@@ -162,11 +166,11 @@ const WelcomePage = () => {
                 </div>
                 <div className="information">
                   <i className="fa-solid fa-phone"></i>
-                  Phone: +84 07777777
+                  Phone: +84 704620854
                 </div>
                 <div className="information">
                   <i className="fa-solid fa-envelope"></i>
-                  Email: codingpatrons@mail.com
+                  Email: tanlocnguyen2410@gmail.com
                 </div>
               </div>
             </div>
